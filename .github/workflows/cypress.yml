@@ -1,58 +1,39 @@
-name: Cypress E2E Tests
+name: Esegui test Cypress
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout repository
-      - name: Checkout repository
+      - name: Checkout codice
         uses: actions/checkout@v3
 
-      # 2️⃣ Setup Node.js
-      - name: Setup Node.js
+      - name: Imposta Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: '18'
 
-      # 3️⃣ Install dependencies
-      - name: Install dependencies
+      - name: Installa dipendenze
         run: npm install
 
-      # 3.1️⃣ Verify Cypress installation
-      - name: Verify Cypress
+      - name: Verifica installazione Cypress
         run: npx cypress verify
 
-      # 4️⃣ List test files (debug)
-      - name: List test files
-        run: ls -la "cypress/e2e/EasyMap Test Library/"
-
-      # 5️⃣ Run Cypress tests individually (exit code ignored)
-      - name: Run Cypress tests individually
+      - name: Esegui test Cypress
         run: |
           mkdir -p results
-          for f in "cypress/e2e/EasyMap Test Library/"*.cy.js; do
+          for f in cypress/e2e/EasyMap\ Test\ Library/*.cy.js; do
             filename=$(basename "$f" .cy.js)
-            echo "Running test file: $f"
-            # Run Cypress; ignore exit code
-            npx cypress run --spec "$f" --reporter junit --reporter-options "mochaFile=results/${filename}-Output.xml,toConsole=true,overwrite=true" || true
+            npx cypress run --spec "$f" --reporter junit --reporter-options "mochaFile=results/${filename}-Output.xml"
           done
-          echo "All tests executed. Forcing exit code 0."
-          exit 0
 
-      # 6️⃣ List results folder (debug)
-      - name: List results folder
-        run: ls -la results/
-
-      # 7️⃣ Upload test results as artifact
-      - name: Upload test results
+      - name: Carica report JUnit come artifact
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-results
+          name: cypress-junit-reports
           path: results/*.xml
