@@ -8,6 +8,4 @@ it('XXX Title XXX', function() {
   cy.get('#password').type('Zdravo9095Leo93?');
   cy.get('#kc-login').click();
 
-
-
 });     
