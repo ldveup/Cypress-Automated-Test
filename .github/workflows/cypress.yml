@@ -33,9 +33,9 @@ jobs:
       - name: List test files
         run: ls -la "cypress/e2e/EasyMap Test Library/"
 
-      # 5️⃣ Run Cypress tests singolarmente per file
+      # 5️⃣ Run Cypress tests singolarmente
       - name: Run Cypress tests individually
-        continue-on-error: true
+        continue-on-error: true   # <-- do not fail the job if tests fail
         run: |
           mkdir -p results
           for f in "cypress/e2e/EasyMap Test Library/"*.spec.js; do
@@ -49,7 +49,7 @@ jobs:
       - name: List results folder
         run: ls -la results/
 
-      # 7️⃣ Upload test results
+      # 7️⃣ Upload test results as artifact
       - name: Upload test results
         uses: actions/upload-artifact@v4
         with:
