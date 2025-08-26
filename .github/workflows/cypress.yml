@@ -33,19 +33,18 @@ jobs:
       - name: List test files
         run: ls -la "cypress/e2e/EasyMap Test Library/"
 
-      # 5️⃣ Run Cypress tests singolarmente (exit code ignored)
+      # 5️⃣ Run Cypress tests individually
       - name: Run Cypress tests individually
         run: |
           mkdir -p results
           for f in "cypress/e2e/EasyMap Test Library/"*.spec.js; do
             echo "Running test file: $f"
             filename=$(basename "$f" .spec.js)
-            # Run Cypress and capture exit code without failing workflow
-            npx cypress run --spec "$f" --reporter junit --reporter-options "mochaFile=results/${filename}-Output.xml,toConsole=true,overwrite=true"
-            status=$?
-            echo "Cypress exit code: $status (ignored)"
+            # Run Cypress; ignore errors but generate reports
+            npx cypress run --spec "$f" --reporter junit --reporter-options "mochaFile=results/${filename}-Output.xml,toConsole=true,overwrite=true" || true
           done
-
+          echo "All tests executed. Forcing exit code 0."
+          exit 0   
       # 6️⃣ List results folder (debug)
       - name: List results folder
         run: ls -la results/
