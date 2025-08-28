@@ -15,18 +15,3 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
-// Buffer to store outputs for the current spec
-const testOutput = [];
-
-// Helper command to add output for a test
-Cypress.Commands.add('logOutput', (message) => {
-  testOutput.push(message);
-});
-
-// After all tests in the spec, write output to a file
-after(() => {
-  const filename = `${Cypress.spec.name.replace('.cy.js','').replace('.spec.js','')}-OUTPUT.txt`;
-  const content = testOutput.join('\n');
-  // Use cy.then to safely call cy.task in after hook
-  cy.then(() => cy.task('saveOutput', { filename, content }));
-});

@@ -7,7 +7,7 @@ module.exports = defineConfig({
   e2e: {
     experimentalStudio: true,
     setupNodeEvents(on, config) {
-      // Safe task to write output files
+      // Optional: custom task
       on('task', {
         saveOutput({ filename, content }) {
           try {
@@ -24,9 +24,9 @@ module.exports = defineConfig({
     },
     reporter: "junit",
     reporterOptions: {
-      mochaFile: "results/my-tests-[hash].xml",
+      mochaFile: "cypress/results/output-[hash].xml",
       toConsole: true,
-      overwrite: false  
+      overwrite: true
     } 
   },
 });
