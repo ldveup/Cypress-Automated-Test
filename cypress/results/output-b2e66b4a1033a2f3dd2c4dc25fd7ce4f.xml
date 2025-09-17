@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="61.705" tests="3" failures="0">
+  <testsuite name="Root Suite" timestamp="2025-09-17T06:52:06" tests="3" file="cypress/e2e/EasyMap_TestLibrary/AT.D-2.cy.js" time="61.704" failures="0">
+    <testcase name="AT.D-2-Celsius" time="19.795" classname="AT.D-2-Celsius">
+    </testcase>
+    <testcase name="AT.D-2-Fahreneit" time="21.466" classname="AT.D-2-Fahreneit">
+    </testcase>
+    <testcase name="AT.D-2-Humidity" time="19.676" classname="AT.D-2-Humidity">
+    </testcase>
+  </testsuite>
+</testsuites>

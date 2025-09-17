@@ -23,3 +23,13 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("login", (username, password) => {
+
+    cy.visit('https://app-lab08.eupry.com/app2/#/easymap');
+    cy.get('#username').type(username);
+    cy.get('#kc-login').click();
+    cy.get('#password').type(password);
+    cy.get('#kc-login').click();
+
+});

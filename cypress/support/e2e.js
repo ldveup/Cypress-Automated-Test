@@ -15,3 +15,15 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+
+Cypress.SelectorPlayground.defaults({
+  selectorPriority: ['data-cy', 'data-test', 'id', 'class']
+});
+
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+  // ignora errori di ResizeObserver
+  if (err.message.includes('ResizeObserver loop')) {
+    return false; // impedisce a Cypress di fallire il test
+  }
+});

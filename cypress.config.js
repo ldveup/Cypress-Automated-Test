@@ -6,6 +6,7 @@ module.exports = defineConfig({
   projectId: 'ghvyej',
   e2e: {
     experimentalStudio: true,
+    testIdAttribute: 'data-cy', // Cypress will use this attribute when selecting elements
     setupNodeEvents(on, config) {
       // Optional: custom task
       on('task', {

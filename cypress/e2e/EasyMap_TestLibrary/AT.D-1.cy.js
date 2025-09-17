@@ -1,13 +1,8 @@
 it('Consistency of Data input', function() {
-
     
-  cy.visit('https://app-lab08.eupry.com/app2/#/easymap');
-  
-  // Login
-    cy.get('#username').type('ldv@eupry.com');
-    cy.get('#kc-login').click();
-    cy.get('#password').type('Zdravo9095Leo93?');
-    cy.get('#kc-login').click();
+// Login - insert your user credentials 
+  cy.login('ldv@eupry.com','Zdravo9095Leo93?');
+
 
 // TD-7 - Location ID must accept only numerical input
     cy.get('input[id="Location ID"]').type('qwrtyuiopåasdfghjklæø*@§!"#€%&/()=?`$)');
@@ -16,9 +11,25 @@ it('Consistency of Data input', function() {
     cy.get('input[id="Location ID"]').should('have.value', '2427');
 
 // TD-8 - Set end date before start date and check error message  
-    cy.get('#reka-popover-trigger-v-3 > div').click();
-    cy.get('#reka-popover-content-v-8 > div').find('button[data-value="2025-08-11"]').click();
-    cy.get('#reka-popover-trigger-v-3 > div').click();
+
+    // Give alias to popover trigger
+    cy.get('#reka-popover-trigger-v-4').as('popoverTrigger');
+
+    // Click popover - open calendar
+    cy.get('@popoverTrigger').find('.eupry-icon-wrapper').click();
+    
+    // Select Year if an earlier year is needed
+    //cy.get('#reka-popover-content-v-10 button.w-\\[40\\%\\]').click();
+    //cy.contains('2025').click();
+
+    // Select Month
+    cy.get('#reka-popover-content-v-10 button.w-\\[60\\%\\]').click();
+    cy.contains('August').click();
+    
+    // Select end day earlier than start day
+    cy.get('#reka-popover-content-v-10 > div').find('button[data-value="2025-08-11"]').click();
+
+    // Check error message
     cy.get('#end-date-select > div > div.text-xs.text-destructive-foreground.mt-2').should('have.text', 'End date must be after start date');
 
 // TD-9 - Select Fahreneit, Humidity, and Celsius
