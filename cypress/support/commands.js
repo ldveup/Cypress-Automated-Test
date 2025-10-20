@@ -33,3 +33,24 @@ Cypress.Commands.add("login", (username, password) => {
     cy.get('#kc-login').click();
 
 });
+
+Cypress.Commands.add("logintostaging", (username, password) => {
+
+    cy.visit('app-staging.eupry.com/app2/#/easymap');
+    cy.get('#username').type(username);
+    cy.get('#kc-login').click();
+    cy.get('#password').type(password);
+    cy.get('#kc-login').click();
+
+});
+
+
+Cypress.Commands.add("staginglogin", (username, password) => {
+
+    cy.visit('https://app-staging.eupry.com/monitoring/#/acc/1');
+    cy.get('#username').type(username);
+    cy.get('#kc-login').click();
+    cy.get('#password').type(password);
+    cy.get('#kc-login').click();
+
+});

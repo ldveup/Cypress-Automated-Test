@@ -1,7 +1,7 @@
 it('Consistency of Data input', function() {
-    
+
 // Login - insert your user credentials 
-  cy.login('ldv@eupry.com','Zdravo9095Leo93?');
+  cy.logintostaging('ldv@eupry.com','Zdravo9095Leo93?');
 
 
 // TD-7 - Location ID must accept only numerical input
@@ -16,18 +16,20 @@ it('Consistency of Data input', function() {
     cy.get('#reka-popover-trigger-v-4').as('popoverTrigger');
 
     // Click popover - open calendar
-    cy.get('@popoverTrigger').find('.eupry-icon-wrapper').click();
+    cy.get('#reka-popover-trigger-v-3').click();
     
     // Select Year if an earlier year is needed
     //cy.get('#reka-popover-content-v-10 button.w-\\[40\\%\\]').click();
     //cy.contains('2025').click();
 
     // Select Month
-    cy.get('#reka-popover-content-v-10 button.w-\\[60\\%\\]').click();
-    cy.contains('August').click();
+    cy.get('button[aria-label="Select month"]').click();
+    cy.contains('November').click();
     
     // Select end day earlier than start day
-    cy.get('#reka-popover-content-v-10 > div').find('button[data-value="2025-08-11"]').click();
+    //cy.get('#reka-popover-content-v-10 > div').find('button[data-value="2025-08-11"]').click();
+    cy.get('button[data-slot="calendar-cell-trigger"][data-value="2025-11-10"]').click();
+
 
     // Check error message
     cy.get('#end-date-select > div > div.text-xs.text-destructive-foreground.mt-2').should('have.text', 'End date must be after start date');
@@ -53,8 +55,6 @@ it('Consistency of Data input', function() {
 // TD-9 - Select Humidity and check that 'Internal only' button is not available
     cy.get('#Humidity').click();
     cy.get('#Internal\\ only').should('have.attr', 'aria-disabled', 'true');
-
-
 
 });       
 

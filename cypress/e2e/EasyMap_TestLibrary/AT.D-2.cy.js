@@ -1,27 +1,29 @@
 it('AT.D-2-Celsius', function() {
 
   // Login - insert your user credentials 
-  cy.login('ldv@eupry.com','Zdravo9095Leo93?');
+  cy.logintostaging('ldv@eupry.com','Zdravo9095Leo93?');
 
   cy.get('input[id="Location ID"]').type('2427');
   cy.get('#Mapping\\ name\\ \\*').type('Cypress Mapping');
 
   // Give alias to popover trigger
-  cy.get('#reka-popover-trigger-v-2').as('popoverTrigger');
+  cy.get('#reka-popover-trigger-v-4').as('popoverTrigger');
 
   // Click popover - open calendar
-  cy.get('@popoverTrigger').find('.eupry-icon-wrapper').click();
+  cy.get('#reka-popover-trigger-v-3').click();
 
   // Select Year if an earlier year is needed
   //cy.get('#reka-popover-content-v-8 button.w-\\[40\\%\\]').click();
   //cy.contains('2025').click();
 
   // Select Month
-  cy.get('#reka-popover-content-v-8 button.w-\\[60\\%\\]').click();
+  cy.get('button[aria-label="Select month"]').click();
   cy.contains('April').click();
 
   // Select Day
-  cy.get('#reka-popover-content-v-8 > div').find('button[data-value="2025-04-11"]').click();
+  //cy.get('#reka-popover-content-v-8 > div').find('button[data-value="2025-04-11"]').click();
+  cy.get('button[data-slot="calendar-cell-trigger"][data-value="2025-04-11"]').click();
+
 
   cy.get('#Mapping\\ name\\ \\*').click(); // Click outside to close calendar
 
@@ -102,33 +104,36 @@ cy.get('#app > div.shadow-xs.rounded-sm > div.shadow-xs.rounded-sm.bg-primary-wh
 // Excursions Table
   cy.contains('div', 'Excursions').parents('div').find('table[data-slot="table"]').should('exist'); // Excursions Table
 
-
+// Logout 
+  cy.contains('button', 'Log out').click();
+ 
 });
 
 it('AT.D-2-Fahreneit', function() {
 
   // Login - insert your user credentials 
-  cy.login('ldv@eupry.com','Zdravo9095Leo93?');
+  cy.logintostaging('ldv@eupry.com','Zdravo9095Leo93?');
 
   cy.get('input[id="Location ID"]').type('2427');
   cy.get('#Mapping\\ name\\ \\*').type('Cypress Mapping');
 
   // Give alias to popover trigger
-  cy.get('#reka-popover-trigger-v-2').as('popoverTrigger');
+  cy.get('#reka-popover-trigger-v-4').as('popoverTrigger');
 
   // Click popover - open calendar
-  cy.get('@popoverTrigger').find('.eupry-icon-wrapper').click();
+  cy.get('#reka-popover-trigger-v-3').click();
 
   // Select Year if an earlier year is needed
   //cy.get('#reka-popover-content-v-8 button.w-\\[40\\%\\]').click();
   //cy.contains('2025').click();
 
   // Select Month
-  cy.get('#reka-popover-content-v-8 button.w-\\[60\\%\\]').click();
+  cy.get('button[aria-label="Select month"]').click();
   cy.contains('April').click();
 
   // Select Day
-  cy.get('#reka-popover-content-v-8 > div').find('button[data-value="2025-04-11"]').click();
+  //cy.get('#reka-popover-content-v-8 > div').find('button[data-value="2025-04-11"]').click();
+  cy.get('button[data-slot="calendar-cell-trigger"][data-value="2025-04-11"]').click();
 
   cy.get('#Mapping\\ name\\ \\*').click(); // Click outside to close calendar
 
@@ -216,7 +221,8 @@ cy.get('#app > div.shadow-xs.rounded-sm > div.shadow-xs.rounded-sm.bg-primary-wh
 // Excursions Table
   cy.contains('div', 'Excursions').parents('div').find('table[data-slot="table"]').should('exist'); // Excursions Table
 
-
+// Logout 
+  cy.contains('button', 'Log out').click();
 
 });
 
@@ -224,27 +230,28 @@ cy.get('#app > div.shadow-xs.rounded-sm > div.shadow-xs.rounded-sm.bg-primary-wh
 it('AT.D-2-Humidity', function() {
 
   // Login - insert your user credentials 
-  cy.login('ldv@eupry.com','Zdravo9095Leo93?');
+  cy.logintostaging('ldv@eupry.com','Zdravo9095Leo93?');
 
   cy.get('input[id="Location ID"]').type('2427');
   cy.get('#Mapping\\ name\\ \\*').type('Cypress Mapping');
 
   // Give alias to popover trigger
-  cy.get('#reka-popover-trigger-v-2').as('popoverTrigger');
+  cy.get('#reka-popover-trigger-v-4').as('popoverTrigger');
 
   // Click popover - open calendar
-  cy.get('@popoverTrigger').find('.eupry-icon-wrapper').click();
+  cy.get('#reka-popover-trigger-v-3').click();
 
   // Select Year if an earlier year is needed
   //cy.get('#reka-popover-content-v-8 button.w-\\[40\\%\\]').click();
   //cy.contains('2025').click();
 
   // Select Month
-  cy.get('#reka-popover-content-v-8 button.w-\\[60\\%\\]').click();
+  cy.get('button[aria-label="Select month"]').click();
   cy.contains('April').click();
 
   // Select Day
-  cy.get('#reka-popover-content-v-8 > div').find('button[data-value="2025-04-11"]').click();
+  //cy.get('#reka-popover-content-v-8 > div').find('button[data-value="2025-04-11"]').click();
+  cy.get('button[data-slot="calendar-cell-trigger"][data-value="2025-04-11"]').click();
 
   cy.get('#Mapping\\ name\\ \\*').click(); // Click outside to close calendar
 
@@ -321,5 +328,7 @@ cy.get('#app > div.shadow-xs.rounded-sm > div.shadow-xs.rounded-sm.bg-primary-wh
 // Excursions Table
   cy.contains('div', 'Excursions').parents('div').find('table[data-slot="table"]').should('exist'); // Excursions Table
 
+// Logout 
+  cy.contains('button', 'Log out').click();
 
 });
