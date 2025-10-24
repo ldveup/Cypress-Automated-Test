@@ -1,7 +1,7 @@
 it('Consistency of Data input', function() {
 
 // Login - insert your user credentials 
-  cy.logintostaging('ldv@eupry.com','Zdravo9095Leo93?');
+  cy.logintostaging('ldv@eupry.com','Zdravo9095Leo93!');
 
 
 // TD-7 - Location ID must accept only numerical input

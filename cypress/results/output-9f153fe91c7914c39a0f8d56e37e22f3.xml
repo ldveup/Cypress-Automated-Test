@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="7.549" tests="1" failures="1">
+  <testsuite name="Root Suite" timestamp="2025-10-24T09:40:09" tests="1" file="cypress/e2e/EasyMap_TestLibrary/AT.D-1.cy.js" time="7.547" failures="1">
+    <testcase name="Consistency of Data input" time="0.000" classname="Consistency of Data input">
+      <failure message="Timed out retrying after 4000ms: Expected to find element: `input[id=&quot;Location ID&quot;]`, but never found it." type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: Expected to find element: `input[id="Location ID"]`, but never found it.
+    at Context.eval (webpack://em_cypress/./cypress/e2e/EasyMap_TestLibrary/AT.D-1.cy.js:8:7)]]></failure>
+    </testcase>
+  </testsuite>
+</testsuites>

@@ -1,7 +1,7 @@
 it('AT.D-2-Celsius', function() {
 
   // Login - insert your user credentials 
-  cy.logintostaging('ldv@eupry.com','Zdravo9095Leo93?');
+  cy.logintostaging('ldv@eupry.com','Zdravo9095Leo93!');
 
   cy.get('input[id="Location ID"]').type('2427');
   cy.get('#Mapping\\ name\\ \\*').type('Cypress Mapping');
@@ -112,7 +112,7 @@ cy.get('#app > div.shadow-xs.rounded-sm > div.shadow-xs.rounded-sm.bg-primary-wh
 it('AT.D-2-Fahreneit', function() {
 
   // Login - insert your user credentials 
-  cy.logintostaging('ldv@eupry.com','Zdravo9095Leo93?');
+  cy.logintostaging('ldv@eupry.com','Zdravo9095Leo93!');
 
   cy.get('input[id="Location ID"]').type('2427');
   cy.get('#Mapping\\ name\\ \\*').type('Cypress Mapping');
@@ -230,7 +230,7 @@ cy.get('#app > div.shadow-xs.rounded-sm > div.shadow-xs.rounded-sm.bg-primary-wh
 it('AT.D-2-Humidity', function() {
 
   // Login - insert your user credentials 
-  cy.logintostaging('ldv@eupry.com','Zdravo9095Leo93?');
+  cy.logintostaging('ldv@eupry.com','Zdravo9095Leo93!');
 
   cy.get('input[id="Location ID"]').type('2427');
   cy.get('#Mapping\\ name\\ \\*').type('Cypress Mapping');

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Mocha Tests" time="6.211" tests="1" failures="0">
-  <testsuite name="Root Suite" timestamp="2025-10-20T12:14:38" tests="1" file="cypress/e2e/EasyMap_TestLibrary/AT.D-1.cy.js" time="6.210" failures="0">
-    <testcase name="Consistency of Data input" time="5.424" classname="Consistency of Data input">
-    </testcase>
-  </testsuite>
-</testsuites>
